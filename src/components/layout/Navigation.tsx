@@ -87,7 +87,7 @@ export default function Navigation() {
         )}
 
         {/* 3-col CSS Grid — guarantees center column is always perfectly centered */}
-        <nav className="relative max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-[1fr_auto_1fr] items-center">
+        <nav className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-[1fr_auto_1fr] items-center" style={{ marginLeft: 'auto', marginRight: 'auto' }}>
           {/* Left nav — desktop */}
           <div className="hidden md:flex items-center gap-2">
             {leftLinks.map((link, i) => (
