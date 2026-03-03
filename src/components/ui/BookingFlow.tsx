@@ -100,9 +100,11 @@ export default function BookingFlow() {
                 <button
                   onClick={() => selectedApt && setStep(2)}
                   disabled={!selectedApt}
-                  className='font-label w-full sm:w-auto px-10 py-4 bg-midnight text-white text-sm tracking-[0.15em] uppercase disabled:opacity-40 hover:bg-gold transition-all duration-300'
+                  className='btn-shimmer font-label w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-4 text-white text-sm tracking-[0.15em] uppercase disabled:opacity-40 disabled:pointer-events-none min-h-[52px]'
+                  style={{ background: 'linear-gradient(135deg,#b8943e 0%,#d4b96e 40%,#c5a55a 65%,#a88844 100%)' }}
                 >
-                  Continue →
+                  <span>Continue</span>
+                  <span className='btn-arrow leading-none'>→</span>
                 </button>
               </div>
             </motion.div>
@@ -186,16 +188,19 @@ export default function BookingFlow() {
               <div className='flex flex-col sm:flex-row justify-between gap-3 sm:gap-0'>
                 <button
                   onClick={() => setStep(1)}
-                  className='font-label w-full sm:w-auto px-8 py-4 border border-stone text-muted text-sm tracking-widest uppercase hover:border-midnight hover:text-midnight transition-all'
+                  className='btn-corners font-label w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 border border-stone text-muted text-sm tracking-widest uppercase hover:border-gold hover:text-gold transition-colors duration-300 min-h-[52px]'
                 >
-                  ← Back
+                  <span style={{ display: 'inline-block', transform: 'scaleX(-1)' }}>→</span>
+                  <span>Back</span>
                 </button>
                 <button
                   onClick={() => checkIn && checkOut && nights > 0 && setStep(3)}
                   disabled={!checkIn || !checkOut || nights <= 0}
-                  className='font-label w-full sm:w-auto px-10 py-4 bg-midnight text-white text-sm tracking-[0.15em] uppercase disabled:opacity-40 hover:bg-gold transition-all duration-300'
+                  className='btn-shimmer font-label w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-4 text-white text-sm tracking-[0.15em] uppercase disabled:opacity-40 disabled:pointer-events-none min-h-[52px]'
+                  style={{ background: 'linear-gradient(135deg,#b8943e 0%,#d4b96e 40%,#c5a55a 65%,#a88844 100%)' }}
                 >
-                  Continue →
+                  <span>Continue</span>
+                  <span className='btn-arrow leading-none'>→</span>
                 </button>
               </div>
             </motion.div>
@@ -260,16 +265,19 @@ export default function BookingFlow() {
               <div className='flex flex-col sm:flex-row justify-between gap-3 sm:gap-0'>
                 <button
                   onClick={() => setStep(2)}
-                  className='font-label w-full sm:w-auto px-8 py-4 border border-stone text-muted text-sm tracking-widest uppercase hover:border-midnight hover:text-midnight transition-all'
+                  className='btn-corners font-label w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 border border-stone text-muted text-sm tracking-widest uppercase hover:border-gold hover:text-gold transition-colors duration-300 min-h-[52px]'
                 >
-                  ← Back
+                  <span style={{ display: 'inline-block', transform: 'scaleX(-1)' }}>→</span>
+                  <span>Back</span>
                 </button>
                 <button
                   onClick={() => guestInfo.name && guestInfo.email && setStep(4)}
                   disabled={!guestInfo.name || !guestInfo.email}
-                  className='font-label w-full sm:w-auto px-10 py-4 bg-gold text-white text-sm tracking-[0.15em] uppercase disabled:opacity-40 hover:bg-gold-light transition-all duration-300'
+                  className='btn-shimmer font-label w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-4 text-white text-sm tracking-[0.15em] uppercase disabled:opacity-40 disabled:pointer-events-none min-h-[52px]'
+                  style={{ background: 'linear-gradient(135deg,#b8943e 0%,#d4b96e 40%,#c5a55a 65%,#a88844 100%)' }}
                 >
-                  Complete Reservation →
+                  <span>Complete Reservation</span>
+                  <span className='btn-arrow leading-none'>→</span>
                 </button>
               </div>
             </motion.div>
@@ -324,9 +332,11 @@ export default function BookingFlow() {
 
               <Link
                 href='/'
-                className='font-label inline-block px-10 py-4 bg-midnight text-white text-sm tracking-[0.15em] uppercase hover:bg-gold transition-all duration-300'
+                className='btn-shimmer font-label inline-flex items-center gap-3 px-10 py-4 text-white text-sm tracking-[0.15em] uppercase min-h-[52px]'
+                style={{ background: 'linear-gradient(135deg,#b8943e 0%,#d4b96e 40%,#c5a55a 65%,#a88844 100%)' }}
               >
-                Back to Villa Aurea
+                <span>Back to Villa Aurea</span>
+                <span className='btn-arrow leading-none'>→</span>
               </Link>
             </motion.div>
           )}

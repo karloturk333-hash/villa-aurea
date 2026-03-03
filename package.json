@@ -9,7 +9,8 @@
     "lint": "eslint",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "qa:screenshots": "npx tsx scripts/visual-qa.ts"
   },
   "dependencies": {
     "@playwright/test": "^1.58.2",
@@ -17,6 +18,7 @@
     "@react-three/fiber": "^9.5.0",
     "@types/three": "^0.183.1",
     "framer-motion": "^12.34.4",
+    "lenis": "^1.3.18-dev.0",
     "next": "16.1.6",
     "playwright": "^1.58.2",
     "react": "19.2.3",
@@ -35,6 +37,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "jsdom": "^28.1.0",
+    "lightningcss": "^1.31.1",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vitest": "^4.0.18"

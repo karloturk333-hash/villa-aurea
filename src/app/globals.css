@@ -34,9 +34,22 @@
 }
 
 html {
-  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Lenis smooth scroll */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
 }
 
 body {
@@ -135,4 +148,136 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* ============================================================
+   GOD-TIER BUTTON SYSTEM — "Liquid Gold"
+   Three archetypes: shimmer (primary), fill (ghost), corners (icon)
+   ============================================================ */
+
+/* Shimmer sweep keyframe */
+@keyframes shimmer-sweep {
+  0%   { left: -80%; }
+  100% { left: 160%; }
+}
+
+/* --- Type 1: btn-shimmer — Gold metallic primary CTA --- */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.35s ease, transform 0.25s cubic-bezier(0.22,1,0.36,1);
+}
+.btn-shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.30) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+.btn-shimmer:hover::before {
+  animation: shimmer-sweep 0.70s ease-out forwards;
+}
+.btn-shimmer:hover {
+  box-shadow:
+    0 0  0 1px rgba(197,165,90,0.35),
+    0 8px 32px rgba(197,165,90,0.45),
+    0 2px 12px rgba(197,165,90,0.20);
+  transform: scale(1.02) translateY(-1px);
+}
+.btn-shimmer:active {
+  transform: scale(0.99) translateY(0);
+  transition-duration: 0.1s;
+}
+
+/* --- Type 2: btn-fill — Ghost flood-up secondary CTA --- */
+.btn-fill {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition: color 0.35s ease, border-color 0.35s ease;
+}
+.btn-fill::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #b8943e 0%, #d4b96e 45%, #c5a55a 65%, #a88844 100%);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.40s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: -1;
+}
+.btn-fill:hover::before {
+  transform: scaleY(1);
+}
+.btn-fill:hover {
+  color: white !important;
+  border-color: transparent !important;
+}
+
+/* --- Type 3: btn-corners — Bracket reveal icon/small buttons --- */
+.btn-corners {
+  position: relative;
+}
+.btn-corners::before,
+.btn-corners::after {
+  content: '';
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  opacity: 0;
+  transition: opacity 0.22s ease, transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+.btn-corners::before {
+  top: -2px;
+  left: -2px;
+  border-top: 1.5px solid var(--gold);
+  border-left: 1.5px solid var(--gold);
+  transform: translate(5px, 5px);
+}
+.btn-corners::after {
+  bottom: -2px;
+  right: -2px;
+  border-bottom: 1.5px solid var(--gold);
+  border-right: 1.5px solid var(--gold);
+  transform: translate(-5px, -5px);
+}
+.btn-corners:hover::before,
+.btn-corners:hover::after {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* --- Arrow nudge: any element with .btn-arrow inside a hovered button --- */
+.btn-arrow {
+  display: inline-block;
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.btn-shimmer:hover .btn-arrow,
+.btn-fill:hover .btn-arrow,
+.btn-corners:hover .btn-arrow {
+  transform: translateX(5px);
+}
+
+/* --- Animated underline for text-only links --- */
+.btn-underline {
+  background-image: linear-gradient(var(--gold), var(--gold));
+  background-repeat: no-repeat;
+  background-position: 0% 100%;
+  background-size: 0% 1px;
+  transition: background-size 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  padding-bottom: 2px;
+}
+.btn-underline:hover {
+  background-size: 100% 1px;
+  color: white;
 }

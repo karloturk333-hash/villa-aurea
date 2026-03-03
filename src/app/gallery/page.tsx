@@ -1,16 +1,8 @@
-import type { Metadata } from 'next';
-import GalleryGrid from '@/components/ui/GalleryGrid';
+'use client';
 
-export const metadata: Metadata = {
-  title: 'Photo Gallery',
-  description: 'Photo gallery of Villa Aurea — luxury apartments in Hvar, Croatia. Sea views, interiors, terraces, and local scenery.',
-  alternates: { canonical: 'https://villa-aurea.com/gallery' },
-  openGraph: {
-    title: 'Photo Gallery | Villa Aurea Hvar',
-    description: 'Explore Villa Aurea through photography — sea views, interiors, terraces, and the beauty of Hvar.',
-    images: [{ url: 'https://images.unsplash.com/photo-1555990793-da11153b2473?w=1200&q=80', width: 1200, height: 630, alt: 'Villa Aurea gallery' }],
-  },
-};
+import GalleryGrid from '@/components/ui/GalleryGrid';
+import { WordReveal } from '@/components/animations/TextReveal';
+import SectionReveal from '@/components/animations/SectionReveal';
 
 const galleryImages = [
   { src: 'https://images.unsplash.com/photo-1555990793-da11153b2473?w=1200&q=80', alt: 'Hvar Old Town — panoramic view', category: 'local' },
@@ -35,26 +27,23 @@ export default function GalleryPage() {
   return (
     <main>
       {/* Header */}
-      <section className='bg-[#1A1A2E] pt-36 pb-20 text-center'>
-        <span
-          className='text-[11px] tracking-[0.4em] uppercase text-[#C5A55A]'
-          style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 500 }}
-        >
-          Visual Journey
-        </span>
-        <div className='w-12 h-px bg-[#C5A55A] mx-auto mt-4 mb-6' />
-        <h1
-          className='text-5xl lg:text-6xl text-white'
-          style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 300 }}
-        >
-          The <em style={{ fontStyle: 'italic' }}>Gallery</em>
-        </h1>
-        <p
-          className='text-white/50 mt-4 max-w-md mx-auto'
-          style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 300 }}
-        >
-          A curated look into Villa Aurea and the world it inhabits
-        </p>
+      <section className="bg-midnight pt-36 pb-20 text-center">
+        <SectionReveal variant="fade-up">
+          <span className="font-label text-[11px] tracking-[0.4em] uppercase text-gold">
+            Visual Journey
+          </span>
+          <div className="w-12 h-px bg-gold mx-auto mt-4 mb-6" />
+        </SectionReveal>
+        <WordReveal
+          text="The Gallery"
+          as="h1"
+          className="font-heading text-5xl lg:text-6xl text-white"
+        />
+        <SectionReveal variant="fade-up" delay={0.3}>
+          <p className="font-body text-white/50 mt-4 max-w-md mx-auto font-light">
+            A curated look into Villa Aurea and the world it inhabits
+          </p>
+        </SectionReveal>
       </section>
 
       {/* Gallery */}

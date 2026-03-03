@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Navigation from '@/components/layout/Navigation';
 import Footer from '@/components/layout/Footer';
+import SmoothScrollProvider from '@/components/providers/SmoothScrollProvider';
+import PageTransition from '@/components/providers/PageTransition';
 
 const OG_IMAGE = 'https://images.unsplash.com/photo-1555990793-da11153b2473?w=1200&q=80';
 
@@ -78,9 +80,13 @@ export default function RootLayout({
         <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
       </head>
       <body>
-        <Navigation />
-        {children}
-        <Footer />
+        <SmoothScrollProvider>
+          <Navigation />
+          <PageTransition>
+            {children}
+          </PageTransition>
+          <Footer />
+        </SmoothScrollProvider>
       </body>
     </html>
   );

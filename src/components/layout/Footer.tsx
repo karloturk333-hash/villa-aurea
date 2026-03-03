@@ -37,7 +37,7 @@ export default function Footer() {
               {['IG', 'FB', 'TK'].map((s) => (
                 <button
                   key={s}
-                  className='font-label w-9 h-9 border border-white/20 flex items-center justify-center text-xs text-white/50 hover:border-gold hover:text-gold transition-all duration-300'
+                  className='btn-corners font-label w-9 h-9 border border-white/20 flex items-center justify-center text-xs text-white/40 hover:border-gold/50 hover:text-gold transition-all duration-300'
                   aria-label={s}
                 >
                   {s}
