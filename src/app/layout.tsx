@@ -3,7 +3,10 @@ import './globals.css';
 import Navigation from '@/components/layout/Navigation';
 import Footer from '@/components/layout/Footer';
 
+const OG_IMAGE = 'https://images.unsplash.com/photo-1555990793-da11153b2473?w=1200&q=80';
+
 export const metadata: Metadata = {
+  metadataBase: new URL('https://villa-aurea.com'),
   title: {
     default: 'Villa Aurea — Luxury Apartments in Hvar, Croatia',
     template: '%s | Villa Aurea Hvar',
@@ -18,9 +21,15 @@ export const metadata: Metadata = {
     'hvar direct booking',
     'villa aurea',
     'private jacuzzi hvar',
+    'hvar accommodation',
+    'dalmatian coast villa',
+    'book villa direct hvar',
   ],
   authors: [{ name: 'Villa Aurea', url: 'https://villa-aurea.com' }],
   creator: 'Villa Aurea',
+  alternates: {
+    canonical: 'https://villa-aurea.com',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -31,7 +40,7 @@ export const metadata: Metadata = {
       'Where golden light meets the Adriatic. Direct-booking luxury villa on the island of Hvar.',
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=1200&q=80',
+        url: OG_IMAGE,
         width: 1200,
         height: 630,
         alt: 'Villa Aurea — Luxury Villa in Hvar, Croatia',
@@ -42,7 +51,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Villa Aurea — Luxury Apartments in Hvar, Croatia',
     description: 'Where golden light meets the Adriatic.',
-    images: ['https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=1200&q=80'],
+    images: [OG_IMAGE],
   },
   robots: {
     index: true,
