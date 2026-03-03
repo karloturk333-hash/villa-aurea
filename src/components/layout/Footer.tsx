@@ -19,7 +19,7 @@ export default function Footer() {
   return (
     <footer className='bg-midnight text-white/70'>
       {/* Main footer */}
-      <div className='max-w-7xl mx-auto px-6 py-12 lg:py-20'>
+      <div className='max-w-7xl mx-auto px-4 sm:px-6 py-12 lg:py-20'>
         <div className='grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12'>
           {/* Brand */}
           <div className='col-span-2 md:col-span-1'>
@@ -110,7 +110,7 @@ export default function Footer() {
 
       {/* Direct booking strip */}
       <div className='border-t border-white/10'>
-        <div className='max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-4'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-4'>
           <div className='flex items-center gap-3'>
             <span className='text-gold text-xs'>★</span>
             <p className='font-label text-xs text-white/40 tracking-wider'>

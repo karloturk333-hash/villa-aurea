@@ -6,7 +6,7 @@ import { Spotlight } from '@/components/ui/spotlight';
 
 export default function BookingCTABanner() {
   return (
-    <section className='relative overflow-hidden py-28 lg:py-40'>
+    <section className='relative overflow-hidden py-32 lg:py-48'>
       {/* Background */}
       <div className='absolute inset-0'>
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -29,7 +29,7 @@ export default function BookingCTABanner() {
         fill='rgba(46,107,127,0.2)'
       />
 
-      <div className='relative max-w-4xl mx-auto px-6 text-center'>
+      <div className='relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center'>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -47,7 +47,7 @@ export default function BookingCTABanner() {
             <em className='italic' style={{ color: '#C5A55A' }}>Save 15%.</em>
           </h2>
 
-          <p className='font-body text-white/60 text-lg mt-6 mb-12 max-w-xl mx-auto leading-relaxed font-light'>
+          <p className='font-body text-white/60 text-lg mt-6 mb-12 max-w-xl mx-auto leading-relaxed font-light text-center'>
             No commissions. No hidden fees. No Booking.com markup. The best rate is always on our website — and it comes with instant confirmation, personal service, and genuine hospitality.
           </p>
 

@@ -31,7 +31,7 @@ export default function TestimonialsSection() {
 
   return (
     <section className='py-24 lg:py-32 bg-stone overflow-hidden'>
-      <div className='max-w-4xl mx-auto px-6 text-center'>
+      <div className='max-w-4xl mx-auto px-4 sm:px-6 text-center'>
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

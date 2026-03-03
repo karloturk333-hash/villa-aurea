@@ -105,7 +105,7 @@ export default function InteractiveExperience() {
         {/* Top section — headline */}
         <motion.div
           style={{ y: textY }}
-          className='flex flex-col items-center justify-center text-center pt-32 pb-20 px-6'
+          className='flex flex-col items-center justify-center text-center pt-32 pb-20 px-4 sm:px-6'
         >
           <motion.div
             initial={{ opacity: 0, y: 40 }}

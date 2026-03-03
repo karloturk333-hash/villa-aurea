@@ -4,6 +4,9 @@ import { useRef } from 'react';
 import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+const SPRING: [number, number, number, number] = [0.16, 1, 0.3, 1];
+
 export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -36,7 +39,6 @@ export default function HeroSection() {
           loading='eager'
           fetchPriority='high'
         />
-        {/* Cinematic overlay: bottom vignette + soft top */}
         <div className='absolute inset-0 bg-gradient-to-b from-midnight/40 via-transparent via-40% to-midnight/85' />
         <div className='absolute inset-0 bg-gradient-to-r from-midnight/20 via-transparent to-transparent' />
       </motion.div>
@@ -46,17 +48,15 @@ export default function HeroSection() {
         style={{ y: textY, opacity }}
         className='relative h-full flex flex-col items-center justify-center text-center px-6'
       >
-        {/* Pill badge — inspired by reference design */}
+        {/* Pill badge — scale + fade pop */}
         <motion.div
-          initial={{ opacity: 0, y: 16, scale: 0.96 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          initial={{ opacity: 0, scale: 0.88, y: 12 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.65, delay: 0.4, ease: EASE }}
           className='flex items-center gap-2.5 mb-7 sm:mb-8'
           aria-label='Location: Hvar, Croatia'
         >
-          {/* Pill */}
           <span className='inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/20 bg-white/8 backdrop-blur-sm'>
-            {/* Dot */}
             <span className='w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0' aria-hidden='true' />
             <span className='font-label text-white/90 text-[11px] tracking-[0.25em] uppercase'>
               Exclusive Villa · Hvar, Croatia
@@ -64,35 +64,46 @@ export default function HeroSection() {
           </span>
         </motion.div>
 
-        {/* Main title */}
-        <motion.h1
-          initial={{ opacity: 0, y: 44 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.1, delay: 0.65, ease: [0.22, 1, 0.36, 1] }}
-          className='font-heading text-white leading-[0.88] mb-6 sm:mb-7'
-          style={{ fontSize: 'clamp(4.5rem, 13vw, 9rem)' }}
+        {/* Split title — "Villa" from left, "Aurea" from right */}
+        <div
+          className='font-heading text-white mb-6 sm:mb-7 overflow-hidden'
+          style={{ fontSize: 'clamp(3.5rem, 13vw, 9rem)', lineHeight: 0.88 }}
+          aria-label='Villa Aurea'
         >
-          Villa<br />
-          <em className='italic text-gold'>Aurea</em>
-        </motion.h1>
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.9, delay: 0.65, ease: EASE }}
+          >
+            Villa
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.9, delay: 0.8, ease: EASE }}
+            className='italic text-gold block'
+          >
+            Aurea
+          </motion.div>
+        </div>
 
-        {/* Tagline */}
+        {/* Tagline — blur-reveal */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.95 }}
+          initial={{ opacity: 0, filter: 'blur(6px)', y: 10 }}
+          animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
+          transition={{ duration: 1, delay: 1.05, ease: EASE }}
           className='font-display text-white/60 max-w-xs sm:max-w-sm mx-auto mb-10 sm:mb-12 leading-relaxed italic font-light'
           style={{ fontSize: 'clamp(1rem, 2.2vw, 1.2rem)' }}
         >
           Where golden light meets the Adriatic
         </motion.p>
 
-        {/* CTAs */}
+        {/* CTAs — spring slide-up */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.15 }}
-          className='flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full max-w-[320px] sm:max-w-none sm:w-auto'
+          transition={{ duration: 0.8, delay: 1.25, ease: SPRING }}
+          className='flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full max-w-[280px] sm:max-w-none sm:w-auto'
         >
           <Link
             href='/book'
@@ -110,11 +121,11 @@ export default function HeroSection() {
         </motion.div>
       </motion.div>
 
-      {/* Scroll indicator — refined circular style like reference */}
+      {/* Scroll indicator — pulse ring */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2.2 }}
+        transition={{ delay: 2.0 }}
         style={{ opacity }}
         className='absolute bottom-7 sm:bottom-9 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3'
         aria-hidden='true'
@@ -122,16 +133,25 @@ export default function HeroSection() {
         <span className='font-label text-white/35 text-[9px] tracking-[0.35em] uppercase'>
           Scroll
         </span>
-        {/* Animated circle + arrow like reference */}
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
-          className='w-8 h-8 rounded-full border border-white/25 flex items-center justify-center'
-        >
-          <svg width='10' height='12' viewBox='0 0 10 12' fill='none' aria-hidden='true'>
-            <path d='M5 1v10M1 7l4 4 4-4' stroke='rgba(255,255,255,0.5)' strokeWidth='1.2' strokeLinecap='round' strokeLinejoin='round' />
-          </svg>
-        </motion.div>
+        {/* Circle with bouncing arrow + pulse ring */}
+        <div className='relative flex items-center justify-center'>
+          {/* Pulse ring */}
+          <motion.div
+            animate={{ scale: [1, 1.6], opacity: [0.4, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: 'easeOut' }}
+            className='absolute w-8 h-8 rounded-full border border-white/30'
+          />
+          {/* Main circle */}
+          <motion.div
+            animate={{ y: [0, 7, 0] }}
+            transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
+            className='w-8 h-8 rounded-full border border-white/25 flex items-center justify-center'
+          >
+            <svg width='10' height='12' viewBox='0 0 10 12' fill='none'>
+              <path d='M5 1v10M1 7l4 4 4-4' stroke='rgba(255,255,255,0.5)' strokeWidth='1.2' strokeLinecap='round' strokeLinejoin='round' />
+            </svg>
+          </motion.div>
+        </div>
       </motion.div>
     </section>
   );

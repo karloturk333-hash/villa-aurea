@@ -28,7 +28,7 @@ export function BentoGridItem({ header, className, children }: BentoGridItemProp
   return (
     <div
       className={cn(
-        'group relative overflow-hidden cursor-pointer transition-all duration-500',
+        'group relative overflow-hidden cursor-pointer transition-all duration-500 bg-charcoal',
         'border border-transparent hover:border-gold/30',
         className
       )}

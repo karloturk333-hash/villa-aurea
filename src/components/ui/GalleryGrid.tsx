@@ -37,7 +37,7 @@ export default function GalleryGrid({ images }: Props) {
     <>
       {/* Filter bar */}
       <section className='bg-[#FAF7F2] py-8 border-b border-[#E8E0D4]'>
-        <div className='max-w-7xl mx-auto px-6 flex flex-wrap gap-3 justify-center'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 flex flex-wrap gap-3 justify-center'>
           {activeCategories.map((cat) => (
             <button
               key={cat}
@@ -57,7 +57,7 @@ export default function GalleryGrid({ images }: Props) {
 
       {/* Masonry grid */}
       <section className='bg-[#FAF7F2] py-12'>
-        <div className='max-w-7xl mx-auto px-6'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6'>
           <div className='columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4'>
             <AnimatePresence>
               {filtered.map((img, i) => (

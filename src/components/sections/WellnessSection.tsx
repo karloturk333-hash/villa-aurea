@@ -7,7 +7,7 @@ import { BentoGrid, BentoGridItem } from '@/components/ui/bento-grid';
 export default function WellnessSection() {
   return (
     <section className='py-24 lg:py-32 bg-warm-cream overflow-hidden'>
-      <div className='max-w-7xl mx-auto px-6'>
+      <div className='max-w-7xl mx-auto px-4 sm:px-6'>
         {/* Header */}
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 items-end'>
           <motion.div
