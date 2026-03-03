@@ -26,7 +26,7 @@ export default function AboutSection() {
             <motion.div style={{ y: imageY }} className='absolute inset-0 scale-110'>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src='https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1000&q=80'
+                src='https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1000&q=80'
                 alt='Villa Aurea — panoramic terrace overlooking the Adriatic'
                 className='w-full h-full object-cover object-center'
                 loading='eager'

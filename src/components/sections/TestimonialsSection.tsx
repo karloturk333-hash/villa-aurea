@@ -85,17 +85,22 @@ export default function TestimonialsSection() {
           </AnimatePresence>
         </div>
 
+        {/* Screen reader announcer */}
+        <div aria-live='polite' aria-atomic='true' className='sr-only'>
+          Review {active + 1} of {reviews.length}: {reviews[active].quote}
+        </div>
+
         {/* Controls */}
         <div className='flex items-center justify-center gap-6 mt-12'>
           <button
             onClick={prev}
-            className='w-10 h-10 border border-midnight/20 flex items-center justify-center text-midnight/50 hover:border-gold hover:text-gold transition-all duration-300'
+            className='w-12 h-12 border border-midnight/20 flex items-center justify-center text-midnight/50 hover:border-gold hover:text-gold transition-all duration-300'
             aria-label='Previous testimonial'
           >
             ←
           </button>
           {/* Dots */}
-          <div className='flex gap-2.5'>
+          <div className='flex gap-3 items-center'>
             {reviews.map((_, i) => (
               <button
                 key={i}
@@ -104,17 +109,18 @@ export default function TestimonialsSection() {
                   setActive(i);
                 }}
                 aria-label={`Go to review ${i + 1}`}
-                className={`transition-all duration-300 ${
+                aria-current={i === active ? 'true' : undefined}
+                className={`transition-all duration-300 touch-target ${
                   i === active
                     ? 'w-6 h-1 bg-gold'
-                    : 'w-1 h-1 rounded-full bg-midnight/20 hover:bg-gold/40'
+                    : 'w-1.5 h-1.5 rounded-full bg-midnight/20 hover:bg-gold/50'
                 }`}
               />
             ))}
           </div>
           <button
             onClick={next}
-            className='w-10 h-10 border border-midnight/20 flex items-center justify-center text-midnight/50 hover:border-gold hover:text-gold transition-all duration-300'
+            className='w-12 h-12 border border-midnight/20 flex items-center justify-center text-midnight/50 hover:border-gold hover:text-gold transition-all duration-300'
             aria-label='Next testimonial'
           >
             →
