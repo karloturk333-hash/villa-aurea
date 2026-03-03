@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { Spotlight } from '@/components/ui/spotlight';
 
 export default function BookingCTABanner() {
   return (
@@ -14,9 +15,19 @@ export default function BookingCTABanner() {
           alt='Adriatic sea at night'
           className='w-full h-full object-cover'
         />
-        <div className='absolute inset-0 bg-[#1A1A2E]/75' />
-        <div className='absolute inset-0 bg-gradient-to-b from-[#1A1A2E]/40 to-[#1A1A2E]/60' />
+        <div className='absolute inset-0 bg-midnight/75' />
+        <div className='absolute inset-0 bg-gradient-to-b from-midnight/40 to-midnight/60' />
       </div>
+
+      {/* Spotlights */}
+      <Spotlight
+        className='-top-40 left-0 md:left-60 md:-top-20'
+        fill='rgba(197,165,90,0.25)'
+      />
+      <Spotlight
+        className='-top-40 right-0 md:right-60 md:-top-20'
+        fill='rgba(46,107,127,0.2)'
+      />
 
       <div className='relative max-w-4xl mx-auto px-6 text-center'>
         <motion.div
@@ -25,56 +36,42 @@ export default function BookingCTABanner() {
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         >
-          <span
-            className='text-[11px] tracking-[0.4em] uppercase text-[#C5A55A]'
-            style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 500 }}
-          >
+          <span className='font-label text-[11px] tracking-[0.4em] uppercase text-gold'>
             Best Rate Guaranteed
           </span>
 
-          <div className='w-12 h-px bg-[#C5A55A] mx-auto mt-5 mb-8' />
+          <div className='w-12 h-px bg-gold mx-auto mt-5 mb-8' />
 
-          <h2
-            className='text-5xl sm:text-6xl lg:text-7xl text-white leading-[1.05] mb-4'
-            style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 300 }}
-          >
+          <h2 className='font-heading text-5xl sm:text-6xl lg:text-7xl text-white leading-[1.05] mb-4'>
             Book direct.<br />
-            <em style={{ fontStyle: 'italic', color: '#C5A55A' }}>Save 15%.</em>
+            <em className='italic' style={{ color: '#C5A55A' }}>Save 15%.</em>
           </h2>
 
-          <p
-            className='text-white/60 text-lg mt-6 mb-12 max-w-xl mx-auto leading-relaxed'
-            style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 300 }}
-          >
+          <p className='font-body text-white/60 text-lg mt-6 mb-12 max-w-xl mx-auto leading-relaxed font-light'>
             No commissions. No hidden fees. No Booking.com markup. The best rate is always on our website — and it comes with instant confirmation, personal service, and genuine hospitality.
           </p>
 
           <div className='flex flex-col sm:flex-row items-center justify-center gap-5'>
             <Link
               href='/book'
-              className='px-12 py-5 bg-[#C5A55A] text-white text-sm tracking-[0.2em] uppercase hover:bg-[#D4B96E] transition-all duration-300 shadow-xl shadow-[#C5A55A]/30 hover:shadow-[#C5A55A]/50'
-              style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 500 }}
+              className='font-label px-12 py-5 bg-gold text-white text-sm tracking-[0.2em] uppercase hover:bg-gold-light transition-all duration-300 shadow-xl shadow-gold/30 hover:shadow-gold/50'
             >
               Check Availability
             </Link>
             <Link
               href='/apartments'
-              className='text-white/60 hover:text-white text-sm tracking-[0.15em] uppercase transition-colors duration-200 underline underline-offset-4'
-              style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 300 }}
+              className='font-label text-white/60 hover:text-white text-sm tracking-[0.15em] uppercase transition-colors duration-200 underline underline-offset-4 font-light'
             >
               Explore Apartments First
             </Link>
           </div>
 
           {/* Trust signals */}
-          <div
-            className='flex flex-wrap items-center justify-center gap-8 mt-12 text-white/40 text-xs tracking-widest uppercase'
-            style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}
-          >
+          <div className='font-body flex flex-wrap items-center justify-center gap-8 mt-12 text-white/40 text-xs tracking-widest uppercase'>
             <span>Free cancellation available</span>
-            <span className='text-[#C5A55A]'>·</span>
+            <span className='text-gold'>·</span>
             <span>Instant confirmation</span>
-            <span className='text-[#C5A55A]'>·</span>
+            <span className='text-gold'>·</span>
             <span>Secure payment</span>
           </div>
         </motion.div>

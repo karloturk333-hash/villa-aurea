@@ -1,8 +1,9 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { Spotlight } from '@/components/ui/spotlight';
 
 export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -18,10 +19,16 @@ export default function HeroSection() {
   return (
     <section
       ref={containerRef}
-      className='relative overflow-hidden bg-[#1A1A2E]'
+      className='relative overflow-hidden bg-midnight'
       style={{ height: '100svh', minHeight: '600px' }}
       aria-label='Villa Aurea hero'
     >
+      {/* Spotlight */}
+      <Spotlight
+        className='-top-40 left-0 md:left-60 md:-top-20'
+        fill='rgba(197,165,90,0.25)'
+      />
+
       {/* Parallax background */}
       <motion.div
         style={{ y: imageY }}
@@ -36,8 +43,8 @@ export default function HeroSection() {
           loading='eager'
         />
         {/* Multi-layer cinematic overlay */}
-        <div className='absolute inset-0 bg-gradient-to-b from-[#1A1A2E]/50 via-transparent to-[#1A1A2E]/80' />
-        <div className='absolute inset-0 bg-gradient-to-r from-[#1A1A2E]/30 via-transparent to-transparent' />
+        <div className='absolute inset-0 bg-gradient-to-b from-midnight/50 via-transparent to-midnight/80' />
+        <div className='absolute inset-0 bg-gradient-to-r from-midnight/30 via-transparent to-transparent' />
       </motion.div>
 
       {/* Hero content */}
@@ -52,14 +59,11 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className='flex items-center gap-3 sm:gap-4 mb-5 sm:mb-6'
         >
-          <span className='block w-8 sm:w-12 h-px bg-[#C5A55A]' />
-          <span
-            className='text-[#C5A55A] text-[10px] sm:text-[11px] tracking-[0.35em] sm:tracking-[0.4em] uppercase'
-            style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 500 }}
-          >
+          <span className='block w-8 sm:w-12 h-px bg-gold' />
+          <span className='font-label text-gold text-[10px] sm:text-[11px] tracking-[0.35em] sm:tracking-[0.4em] uppercase'>
             Hvar, Croatia
           </span>
-          <span className='block w-8 sm:w-12 h-px bg-[#C5A55A]' />
+          <span className='block w-8 sm:w-12 h-px bg-gold' />
         </motion.div>
 
         {/* Main title */}
@@ -67,15 +71,11 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className='text-white leading-[0.9] mb-5 sm:mb-6'
-          style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
-            fontWeight: 300,
-            fontSize: 'clamp(4rem, 12vw, 8rem)',
-          }}
+          className='font-heading text-white leading-[0.9] mb-5 sm:mb-6'
+          style={{ fontSize: 'clamp(4rem, 12vw, 8rem)' }}
         >
           Villa<br />
-          <em style={{ fontStyle: 'italic', color: '#C5A55A' }}>Aurea</em>
+          <em className='italic' style={{ color: '#C5A55A' }}>Aurea</em>
         </motion.h1>
 
         {/* Tagline */}
@@ -83,13 +83,8 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.0 }}
-          className='text-white/70 max-w-xs sm:max-w-md mx-auto mb-8 sm:mb-10 leading-relaxed'
-          style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
-            fontStyle: 'italic',
-            fontWeight: 300,
-            fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
-          }}
+          className='font-display text-white/70 max-w-xs sm:max-w-md mx-auto mb-8 sm:mb-10 leading-relaxed italic font-light'
+          style={{ fontSize: 'clamp(1rem, 2.5vw, 1.25rem)' }}
         >
           Where golden light meets the Adriatic
         </motion.p>
@@ -103,15 +98,13 @@ export default function HeroSection() {
         >
           <Link
             href='/book'
-            className='w-full sm:w-auto px-8 sm:px-10 py-4 bg-[#C5A55A] text-white text-xs sm:text-sm tracking-[0.2em] uppercase text-center hover:bg-[#D4B96E] transition-all duration-300 hover:shadow-lg hover:shadow-[#C5A55A]/30'
-            style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 500 }}
+            className='font-label w-full sm:w-auto px-8 sm:px-10 py-4 bg-gold text-white text-xs sm:text-sm tracking-[0.2em] uppercase text-center hover:bg-gold-light transition-all duration-300 hover:shadow-lg hover:shadow-gold/30'
           >
             Book Direct — Save 15%
           </Link>
           <Link
             href='/apartments'
-            className='w-full sm:w-auto px-8 sm:px-10 py-4 border border-white/40 text-white text-xs sm:text-sm tracking-[0.2em] uppercase text-center hover:border-white hover:bg-white/10 transition-all duration-300'
-            style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 400 }}
+            className='font-label w-full sm:w-auto px-8 sm:px-10 py-4 border border-white/40 text-white text-xs sm:text-sm tracking-[0.2em] uppercase text-center hover:border-white hover:bg-white/10 transition-all duration-300'
           >
             Explore Apartments
           </Link>
@@ -127,16 +120,13 @@ export default function HeroSection() {
         className='absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2'
         aria-hidden='true'
       >
-        <span
-          className='text-white/40 text-[9px] sm:text-[10px] tracking-[0.3em] uppercase'
-          style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}
-        >
+        <span className='font-body text-white/40 text-[9px] sm:text-[10px] tracking-[0.3em] uppercase'>
           Scroll
         </span>
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          className='w-px h-8 sm:h-10 bg-gradient-to-b from-[#C5A55A] to-transparent'
+          className='w-px h-8 sm:h-10 bg-gradient-to-b from-gold to-transparent'
         />
       </motion.div>
     </section>

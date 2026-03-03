@@ -43,23 +43,17 @@ export default function Navigation() {
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? 'bg-[#1A1A2E]/95 backdrop-blur-md shadow-lg py-3'
+            ? 'bg-midnight/95 backdrop-blur-md shadow-lg py-3'
             : 'bg-transparent py-6'
         }`}
       >
         <nav className='max-w-7xl mx-auto px-6 flex items-center justify-between'>
           {/* Logo */}
           <Link href='/' className='flex flex-col items-start group'>
-            <span
-              className='font-display text-2xl tracking-widest text-white'
-              style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 400 }}
-            >
+            <span className='font-display text-2xl tracking-widest text-white font-normal'>
               VILLA AUREA
             </span>
-            <span
-              className='text-[10px] tracking-[0.35em] uppercase text-[#C5A55A] opacity-80 group-hover:opacity-100 transition-opacity'
-              style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 500 }}
-            >
+            <span className='font-label text-[10px] tracking-[0.35em] uppercase text-gold opacity-80 group-hover:opacity-100 transition-opacity'>
               Hvar, Croatia
             </span>
           </Link>
@@ -71,8 +65,7 @@ export default function Navigation() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className='px-6 py-2.5 border border-[#C5A55A] text-[#C5A55A] text-sm tracking-[0.15em] uppercase hover:bg-[#C5A55A] hover:text-white transition-all duration-300'
-                  style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 500 }}
+                  className='font-label px-6 py-2.5 border border-gold text-gold text-sm tracking-[0.15em] uppercase hover:bg-gold hover:text-white transition-all duration-300'
                 >
                   Book Direct
                 </Link>
@@ -80,11 +73,10 @@ export default function Navigation() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className='text-white/80 hover:text-white text-sm tracking-[0.1em] uppercase transition-colors duration-200 relative group'
-                  style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 400 }}
+                  className='font-body text-white/80 hover:text-white text-sm tracking-[0.1em] uppercase transition-colors duration-200 relative group'
                 >
                   {link.label}
-                  <span className='absolute -bottom-0.5 left-0 w-0 h-px bg-[#C5A55A] group-hover:w-full transition-all duration-300' />
+                  <span className='absolute -bottom-0.5 left-0 w-0 h-px bg-gold group-hover:w-full transition-all duration-300' />
                 </Link>
               )
             )}
@@ -118,7 +110,7 @@ export default function Navigation() {
             animate={{ opacity: 1, clipPath: 'inset(0 0 0% 0)' }}
             exit={{ opacity: 0, clipPath: 'inset(0 0 100% 0)' }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className='fixed inset-0 z-40 bg-[#1A1A2E] flex flex-col items-center justify-center'
+            className='fixed inset-0 z-40 bg-midnight flex flex-col items-center justify-center'
           >
             <nav className='flex flex-col items-center gap-10'>
               {navLinks.map((link, i) => (
@@ -132,8 +124,7 @@ export default function Navigation() {
                   <Link
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
-                    className='block text-4xl text-white hover:text-[#C5A55A] transition-colors duration-300'
-                    style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 300 }}
+                    className='font-heading block text-4xl text-white hover:text-gold transition-colors duration-300'
                   >
                     {link.label}
                   </Link>
@@ -146,12 +137,8 @@ export default function Navigation() {
               transition={{ delay: 0.5 }}
               className='absolute bottom-12 text-center'
             >
-              <p className='text-[#8A8580] text-sm tracking-widest uppercase' style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}>
-                stay@villa-aurea.com
-              </p>
-              <p className='text-[#8A8580] text-sm mt-1' style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}>
-                +385 21 742 800
-              </p>
+              <p className='font-body text-muted text-sm tracking-widest uppercase'>stay@villa-aurea.com</p>
+              <p className='font-body text-muted text-sm mt-1'>+385 21 742 800</p>
             </motion.div>
           </motion.div>
         )}

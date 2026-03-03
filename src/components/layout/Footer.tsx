@@ -17,28 +17,19 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className='bg-[#1A1A2E] text-white/70'>
+    <footer className='bg-midnight text-white/70'>
       {/* Main footer */}
       <div className='max-w-7xl mx-auto px-6 py-12 lg:py-20'>
         <div className='grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12'>
           {/* Brand */}
           <div className='col-span-2 md:col-span-1'>
-            <h3
-              className='text-2xl lg:text-3xl text-white tracking-widest mb-2'
-              style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 300 }}
-            >
+            <h3 className='font-display text-2xl lg:text-3xl text-white tracking-widest mb-2 font-light'>
               VILLA AUREA
             </h3>
-            <p
-              className='text-[10px] tracking-[0.35em] uppercase text-[#C5A55A] mb-6'
-              style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 500 }}
-            >
+            <p className='font-label text-[10px] tracking-[0.35em] uppercase text-gold mb-6'>
               Hvar, Croatia
             </p>
-            <p
-              className='text-sm leading-relaxed text-white/50'
-              style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 300 }}
-            >
+            <p className='font-body text-sm leading-relaxed text-white/50 font-light'>
               Where golden light meets the Adriatic. Three exceptional apartments on the most beautiful island in the Mediterranean.
             </p>
             {/* Social icons */}
@@ -46,7 +37,7 @@ export default function Footer() {
               {['IG', 'FB', 'TK'].map((s) => (
                 <button
                   key={s}
-                  className='w-9 h-9 border border-white/20 flex items-center justify-center text-xs text-white/50 hover:border-[#C5A55A] hover:text-[#C5A55A] transition-all duration-300'
+                  className='font-label w-9 h-9 border border-white/20 flex items-center justify-center text-xs text-white/50 hover:border-gold hover:text-gold transition-all duration-300'
                   aria-label={s}
                 >
                   {s}
@@ -57,10 +48,7 @@ export default function Footer() {
 
           {/* Villa links */}
           <div>
-            <h4
-              className='text-[10px] tracking-[0.25em] uppercase text-[#C5A55A] mb-6'
-              style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 500 }}
-            >
+            <h4 className='font-label text-[10px] tracking-[0.25em] uppercase text-gold mb-6'>
               Explore
             </h4>
             <ul className='space-y-3'>
@@ -68,8 +56,7 @@ export default function Footer() {
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className='text-sm text-white/50 hover:text-white transition-colors duration-200'
-                    style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}
+                    className='font-body text-sm text-white/50 hover:text-white transition-colors duration-200'
                   >
                     {l.label}
                   </Link>
@@ -80,10 +67,7 @@ export default function Footer() {
 
           {/* Booking links */}
           <div>
-            <h4
-              className='text-[10px] tracking-[0.25em] uppercase text-[#C5A55A] mb-6'
-              style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 500 }}
-            >
+            <h4 className='font-label text-[10px] tracking-[0.25em] uppercase text-gold mb-6'>
               Reservations
             </h4>
             <ul className='space-y-3'>
@@ -91,8 +75,7 @@ export default function Footer() {
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className='text-sm text-white/50 hover:text-white transition-colors duration-200'
-                    style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}
+                    className='font-body text-sm text-white/50 hover:text-white transition-colors duration-200'
                   >
                     {l.label}
                   </Link>
@@ -103,13 +86,10 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4
-              className='text-[10px] tracking-[0.25em] uppercase text-[#C5A55A] mb-6'
-              style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 500 }}
-            >
+            <h4 className='font-label text-[10px] tracking-[0.25em] uppercase text-gold mb-6'>
               Contact
             </h4>
-            <div className='space-y-4 text-sm text-white/50' style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}>
+            <div className='font-body space-y-4 text-sm text-white/50 font-light'>
               <div>
                 <p className='text-white/30 text-xs mb-1 tracking-wider uppercase'>Address</p>
                 <p>Ul. Biskupa Jurja Dubokovića 12</p>
@@ -132,19 +112,13 @@ export default function Footer() {
       <div className='border-t border-white/10'>
         <div className='max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-4'>
           <div className='flex items-center gap-3'>
-            <span className='text-[#C5A55A] text-xs'>★</span>
-            <p
-              className='text-xs text-white/40 tracking-wider'
-              style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}
-            >
+            <span className='text-gold text-xs'>★</span>
+            <p className='font-label text-xs text-white/40 tracking-wider'>
               BEST RATE GUARANTEED — BOOK DIRECT AND SAVE 15%
             </p>
-            <span className='text-[#C5A55A] text-xs'>★</span>
+            <span className='text-gold text-xs'>★</span>
           </div>
-          <p
-            className='text-xs text-white/30'
-            style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}
-          >
+          <p className='font-body text-xs text-white/30'>
             © {new Date().getFullYear()} Villa Aurea. All rights reserved.
           </p>
         </div>

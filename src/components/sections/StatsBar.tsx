@@ -1,32 +1,31 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 import { stats } from '@/data/villa';
 
 export default function StatsBar() {
+  const ref = useRef<HTMLElement>(null);
+  const inView = useInView(ref, { once: true, margin: '-50px' });
+
   return (
-    <section className='bg-[#1A1A2E] py-8 sm:py-10'>
+    <section ref={ref} className='glass-dark bg-midnight -mt-1 relative z-10'>
       <div className='max-w-7xl mx-auto px-6'>
-        <div className='grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-10'>
+        <div className='grid grid-cols-2 lg:grid-cols-4'>
           {stats.map((stat, i) => (
             <motion.div
               key={stat.label}
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: i * 0.1, duration: 0.6 }}
-              className='text-center py-2'
+              className={`text-center py-8 sm:py-10 ${
+                i < stats.length - 1 ? 'border-r border-white/8' : ''
+              }`}
             >
-              <div
-                className='text-3xl sm:text-4xl lg:text-5xl text-[#C5A55A] mb-1.5'
-                style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 300 }}
-              >
+              <div className='font-display text-3xl sm:text-4xl lg:text-5xl text-gold mb-1.5 font-light'>
                 {stat.value}
               </div>
-              <div
-                className='text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.25em] uppercase text-white/50'
-                style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 400 }}
-              >
+              <div className='font-label text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.25em] uppercase text-white/50'>
                 {stat.label}
               </div>
             </motion.div>

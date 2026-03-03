@@ -42,7 +42,7 @@ export default function InteractiveExperience() {
   return (
     <section
       ref={sectionRef}
-      className='relative bg-[#1A1A2E] overflow-hidden'
+      className='relative bg-midnight overflow-hidden'
       style={{ minHeight: '100vh' }}
     >
       {/* === PARALLAX BACKGROUND LAYER === */}
@@ -62,8 +62,7 @@ export default function InteractiveExperience() {
             className='w-full h-full object-cover opacity-40'
           />
         </motion.div>
-        {/* Deep gradient overlay */}
-        <div className='absolute inset-0 bg-gradient-to-b from-[#1A1A2E]/60 via-[#1A1A2E]/20 to-[#1A1A2E]/80' />
+        <div className='absolute inset-0 bg-gradient-to-b from-midnight/60 via-midnight/20 to-midnight/80' />
       </motion.div>
 
       {/* === FOREGROUND IMAGE LAYER (deeper parallax) === */}
@@ -83,8 +82,8 @@ export default function InteractiveExperience() {
             className='w-full h-full object-cover'
           />
         </motion.div>
-        <div className='absolute inset-0 bg-gradient-to-t from-[#1A1A2E]/90 via-[#1A1A2E]/10 to-transparent' />
-        <div className='absolute inset-0 bg-gradient-to-b from-[#1A1A2E]/60 to-transparent' />
+        <div className='absolute inset-0 bg-gradient-to-t from-midnight/90 via-midnight/10 to-transparent' />
+        <div className='absolute inset-0 bg-gradient-to-b from-midnight/60 to-transparent' />
       </motion.div>
 
       {/* === GOLD GRAIN TEXTURE === */}
@@ -114,31 +113,22 @@ export default function InteractiveExperience() {
             viewport={{ once: true }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span
-              className='text-[11px] tracking-[0.4em] uppercase text-[#C5A55A]'
-              style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 500 }}
-            >
+            <span className='font-label text-[11px] tracking-[0.4em] uppercase text-gold'>
               Immersive Preview
             </span>
-            <div className='w-12 h-px bg-[#C5A55A] mx-auto mt-5 mb-8' />
-            <h2
-              className='text-5xl sm:text-6xl lg:text-7xl text-white leading-[1.05]'
-              style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 300 }}
-            >
+            <div className='w-12 h-px bg-gold mx-auto mt-5 mb-8' />
+            <h2 className='font-heading text-5xl sm:text-6xl lg:text-7xl text-white leading-[1.05]'>
               Step inside<br />
-              <em style={{ fontStyle: 'italic', color: '#C5A55A' }}>before you arrive</em>
+              <em className='italic' style={{ color: '#C5A55A' }}>before you arrive</em>
             </h2>
-            <p
-              className='text-white/50 mt-6 max-w-sm mx-auto hidden md:block'
-              style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 300 }}
-            >
+            <p className='font-body text-white/50 mt-6 max-w-sm mx-auto hidden md:block font-light'>
               Move your cursor to explore — the view is different from every angle
             </p>
           </motion.div>
         </motion.div>
 
         {/* === INTERACTIVE VIEWPORT === */}
-        <div className='relative flex-1 min-h-[450px] mx-6 lg:mx-20 mb-20'>
+        <div className='relative flex-1 min-h-[450px] px-6 lg:px-20 mb-20'>
           {/* Floating info cards */}
           {floatingCards.map((card) => (
             <motion.div
@@ -157,23 +147,17 @@ export default function InteractiveExperience() {
               }}
               className='hidden lg:block'
             >
-              <div className='bg-[#1A1A2E]/80 backdrop-blur-md border border-[#C5A55A]/40 px-5 py-4 min-w-[160px]'>
-                <div className='w-5 h-px bg-[#C5A55A] mb-3' />
-                <p
-                  className='text-white text-base'
-                  style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-                >
+              <div className='bg-midnight/80 backdrop-blur-md border border-gold/40 px-5 py-4 min-w-[160px]'>
+                <div className='w-5 h-px bg-gold mb-3' />
+                <p className='font-display text-white text-base'>
                   {card.title}
                 </p>
-                <p
-                  className='text-white/50 text-xs mt-1'
-                  style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 300 }}
-                >
+                <p className='font-body text-white/50 text-xs mt-1 font-light'>
                   {card.desc}
                 </p>
               </div>
               {/* Connecting dot */}
-              <div className='absolute -bottom-2 left-6 w-2 h-2 rounded-full border border-[#C5A55A] bg-transparent' />
+              <div className='absolute -bottom-2 left-6 w-2 h-2 rounded-full border border-gold bg-transparent' />
             </motion.div>
           ))}
 
@@ -183,7 +167,7 @@ export default function InteractiveExperience() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.3 }}
-            className='absolute inset-x-[15%] inset-y-[10%] border border-[#C5A55A]/20 hidden lg:block pointer-events-none'
+            className='absolute inset-x-[15%] inset-y-[10%] border border-gold/20 hidden lg:block pointer-events-none'
           />
 
           {/* Corner brackets */}
@@ -195,7 +179,7 @@ export default function InteractiveExperience() {
           ].map(({ pos, borders }) => (
             <div
               key={pos}
-              className={`absolute ${pos} w-12 h-12 ${borders} border-[#C5A55A]/60`}
+              className={`absolute ${pos} w-12 h-12 ${borders} border-gold/60`}
             />
           ))}
 
@@ -215,18 +199,12 @@ export default function InteractiveExperience() {
             ].map((item, i, arr) => (
               <div
                 key={item.label}
-                className={`px-8 py-4 text-center bg-[#1A1A2E]/70 backdrop-blur-sm ${i < arr.length - 1 ? 'border-r border-white/10' : ''}`}
+                className={`px-8 py-4 text-center bg-midnight/70 backdrop-blur-sm ${i < arr.length - 1 ? 'border-r border-white/10' : ''}`}
               >
-                <p
-                  className='text-[#C5A55A] text-2xl'
-                  style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-                >
+                <p className='font-display text-gold text-2xl'>
                   {item.n}
                 </p>
-                <p
-                  className='text-white/40 text-[10px] tracking-widest uppercase mt-0.5'
-                  style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}
-                >
+                <p className='font-label text-white/40 text-[10px] tracking-widest uppercase mt-0.5'>
                   {item.label}
                 </p>
               </div>
@@ -246,14 +224,11 @@ export default function InteractiveExperience() {
             href='/gallery'
             className='flex items-center gap-4 group'
           >
-            <span className='w-10 h-px bg-[#C5A55A]/50 group-hover:w-16 transition-all duration-300' />
-            <span
-              className='text-white/50 hover:text-white text-xs tracking-[0.25em] uppercase transition-colors duration-200'
-              style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 500 }}
-            >
+            <span className='w-10 h-px bg-gold/50 group-hover:w-16 transition-all duration-300' />
+            <span className='font-label text-white/50 hover:text-white text-xs tracking-[0.25em] uppercase transition-colors duration-200'>
               View Full Gallery
             </span>
-            <span className='text-[#C5A55A] group-hover:translate-x-2 transition-transform duration-300'>→</span>
+            <span className='text-gold group-hover:translate-x-2 transition-transform duration-300'>→</span>
           </Link>
         </motion.div>
       </div>

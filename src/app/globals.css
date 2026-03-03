@@ -72,3 +72,40 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
   position: relative;
 }
+
+/* Font utility aliases — eliminate inline style={{ fontFamily }} */
+@utility font-display { font-family: var(--font-display); }
+@utility font-body { font-family: var(--font-body); }
+@utility font-label {
+  font-family: var(--font-body);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+@utility font-heading {
+  font-family: var(--font-display);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+
+/* Glass morphism */
+@utility glass-dark {
+  background-color: rgba(255,255,255,0.05);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Dot grid pattern for CardSpotlight backgrounds */
+@utility bg-dot-pattern {
+  background-image: radial-gradient(circle, rgba(197,165,90,0.15) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Spotlight sweep animation */
+@keyframes spotlight {
+  0%   { opacity: 0; transform: translate(-72%, -62%) rotate(30deg) scale(0.9); }
+  100% { opacity: 1; transform: translate(-50%, -40%) rotate(25deg) scale(1); }
+}
+@utility animate-spotlight {
+  animation: spotlight 2s ease-out forwards;
+}

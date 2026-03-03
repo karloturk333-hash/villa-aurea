@@ -30,7 +30,7 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section className='py-24 lg:py-32 bg-[#E8E0D4] overflow-hidden'>
+    <section className='py-24 lg:py-32 bg-stone overflow-hidden'>
       <div className='max-w-4xl mx-auto px-6 text-center'>
         {/* Header */}
         <motion.div
@@ -40,22 +40,18 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.8 }}
           className='mb-16'
         >
-          <span
-            className='text-[11px] tracking-[0.35em] uppercase text-[#C5A55A]'
-            style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 500 }}
-          >
+          <span className='font-label text-[11px] tracking-[0.35em] uppercase text-gold'>
             Guest Stories
           </span>
-          <div className='w-12 h-px bg-[#C5A55A] mx-auto mt-4 mb-0' />
+          <div className='w-12 h-px bg-gold mx-auto mt-4 mb-0' />
         </motion.div>
 
         {/* Large quote mark */}
         <div
-          className='text-[120px] leading-none text-[#C5A55A]/20 select-none -mb-8'
-          style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
+          className='font-display text-[120px] leading-none text-gold/20 select-none -mb-8'
           aria-hidden='true'
         >
-          "
+          &ldquo;
         </div>
 
         {/* Testimonial */}
@@ -71,28 +67,19 @@ export default function TestimonialsSection() {
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
               className='absolute inset-0 flex flex-col items-center justify-center px-4'
             >
-              <blockquote
-                className='text-2xl lg:text-3xl text-[#1A1A2E] leading-relaxed mb-8 max-w-2xl mx-auto'
-                style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontStyle: 'italic', fontWeight: 300 }}
-              >
+              <blockquote className='font-display text-2xl lg:text-3xl text-midnight leading-relaxed mb-8 max-w-2xl mx-auto italic font-light'>
                 {reviews[active].quote}
               </blockquote>
               <div className='flex items-center gap-4'>
-                <span className='w-8 h-px bg-[#C5A55A]' />
-                <span
-                  className='text-sm text-[#1A1A2E] font-medium'
-                  style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}
-                >
+                <span className='w-8 h-px bg-gold' />
+                <span className='font-body text-sm text-midnight font-medium'>
                   {reviews[active].author}
                 </span>
-                <span className='text-[#C5A55A] text-xs'>·</span>
-                <span
-                  className='text-sm text-[#8A8580]'
-                  style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 300 }}
-                >
+                <span className='text-gold text-xs'>·</span>
+                <span className='font-body text-sm text-muted font-light'>
                   {reviews[active].location}
                 </span>
-                <span className='w-8 h-px bg-[#C5A55A]' />
+                <span className='w-8 h-px bg-gold' />
               </div>
             </motion.div>
           </AnimatePresence>
@@ -102,7 +89,7 @@ export default function TestimonialsSection() {
         <div className='flex items-center justify-center gap-6 mt-12'>
           <button
             onClick={prev}
-            className='w-10 h-10 border border-[#1A1A2E]/20 flex items-center justify-center text-[#1A1A2E]/50 hover:border-[#C5A55A] hover:text-[#C5A55A] transition-all duration-300'
+            className='w-10 h-10 border border-midnight/20 flex items-center justify-center text-midnight/50 hover:border-gold hover:text-gold transition-all duration-300'
             aria-label='Previous testimonial'
           >
             ←
@@ -119,15 +106,15 @@ export default function TestimonialsSection() {
                 aria-label={`Go to review ${i + 1}`}
                 className={`transition-all duration-300 ${
                   i === active
-                    ? 'w-6 h-1 bg-[#C5A55A]'
-                    : 'w-1 h-1 rounded-full bg-[#1A1A2E]/20 hover:bg-[#C5A55A]/40'
+                    ? 'w-6 h-1 bg-gold'
+                    : 'w-1 h-1 rounded-full bg-midnight/20 hover:bg-gold/40'
                 }`}
               />
             ))}
           </div>
           <button
             onClick={next}
-            className='w-10 h-10 border border-[#1A1A2E]/20 flex items-center justify-center text-[#1A1A2E]/50 hover:border-[#C5A55A] hover:text-[#C5A55A] transition-all duration-300'
+            className='w-10 h-10 border border-midnight/20 flex items-center justify-center text-midnight/50 hover:border-gold hover:text-gold transition-all duration-300'
             aria-label='Next testimonial'
           >
             →

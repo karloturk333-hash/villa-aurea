@@ -12,7 +12,7 @@ export default function AboutSection() {
   const imageY = useTransform(scrollYProgress, [0, 1], ['-10%', '10%']);
 
   return (
-    <section ref={sectionRef} className='py-16 lg:py-32 bg-[#FAF7F2] overflow-hidden'>
+    <section ref={sectionRef} className='py-16 lg:py-32 bg-warm-cream overflow-hidden'>
       <div className='max-w-7xl mx-auto px-6'>
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-24 items-center'>
           {/* Image with parallax */}
@@ -33,8 +33,8 @@ export default function AboutSection() {
               />
             </motion.div>
             {/* Decorative corner bracket */}
-            <div className='absolute top-6 left-6 w-10 h-10 border-t border-l border-[#C5A55A] opacity-60' />
-            <div className='absolute bottom-6 right-6 w-10 h-10 border-b border-r border-[#C5A55A] opacity-60' />
+            <div className='absolute top-6 left-6 w-10 h-10 border-t border-l border-gold opacity-60' />
+            <div className='absolute bottom-6 right-6 w-10 h-10 border-b border-r border-gold opacity-60' />
           </motion.div>
 
           {/* Text */}
@@ -45,27 +45,18 @@ export default function AboutSection() {
             transition={{ duration: 1, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
             className='lg:pr-8'
           >
-            <span
-              className='text-[11px] tracking-[0.35em] uppercase text-[#C5A55A]'
-              style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 500 }}
-            >
+            <span className='font-label text-[11px] tracking-[0.35em] uppercase text-gold'>
               Our Story
             </span>
 
-            <div className='w-12 h-px bg-[#C5A55A] mt-4 mb-6' />
+            <div className='w-12 h-px bg-gold mt-4 mb-6' />
 
-            <h2
-              className='text-4xl lg:text-6xl text-[#1A1A2E] leading-[1.1] mb-6 lg:mb-8'
-              style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 300 }}
-            >
+            <h2 className='font-heading text-4xl lg:text-6xl text-midnight leading-[1.1] mb-6 lg:mb-8'>
               Where stone<br />
-              <em style={{ fontStyle: 'italic' }}>meets sea</em>
+              <em className='italic'>meets sea</em>
             </h2>
 
-            <div
-              className='space-y-5 text-[#2D2D2D]/70 leading-relaxed'
-              style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 300 }}
-            >
+            <div className='font-body space-y-5 text-charcoal/70 leading-relaxed font-light'>
               <p className='text-base lg:text-lg'>
                 Built in 2019, Villa Aurea rises from the ancient limestone of Hvar with the quiet confidence of a home that knows its place in the world. Its facade — traditional Dalmatian stone, sun-worn and salt-kissed — conceals interiors of quiet modern luxury.
               </p>
@@ -77,48 +68,18 @@ export default function AboutSection() {
               </p>
             </div>
 
-            <div className='flex gap-8 lg:gap-12 mt-8 lg:mt-10 pt-6 lg:pt-8 border-t border-[#E8E0D4]'>
+            <div className='flex gap-8 lg:gap-12 mt-8 lg:mt-10 pt-6 lg:pt-8 border-t border-stone'>
               <div>
-                <div
-                  className='text-3xl text-[#C5A55A] mb-1'
-                  style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 300 }}
-                >
-                  2019
-                </div>
-                <div
-                  className='text-xs tracking-wider text-[#8A8580] uppercase'
-                  style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}
-                >
-                  Year built
-                </div>
+                <div className='font-display text-3xl text-gold mb-1 font-light'>2019</div>
+                <div className='font-label text-xs tracking-wider text-muted uppercase'>Year built</div>
               </div>
               <div>
-                <div
-                  className='text-3xl text-[#C5A55A] mb-1'
-                  style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 300 }}
-                >
-                  3
-                </div>
-                <div
-                  className='text-xs tracking-wider text-[#8A8580] uppercase'
-                  style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}
-                >
-                  Apartments
-                </div>
+                <div className='font-display text-3xl text-gold mb-1 font-light'>3</div>
+                <div className='font-label text-xs tracking-wider text-muted uppercase'>Apartments</div>
               </div>
               <div>
-                <div
-                  className='text-3xl text-[#C5A55A] mb-1'
-                  style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 300 }}
-                >
-                  100m
-                </div>
-                <div
-                  className='text-xs tracking-wider text-[#8A8580] uppercase'
-                  style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}
-                >
-                  To beach
-                </div>
+                <div className='font-display text-3xl text-gold mb-1 font-light'>100m</div>
+                <div className='font-label text-xs tracking-wider text-muted uppercase'>To beach</div>
               </div>
             </div>
           </motion.div>
