@@ -33,8 +33,8 @@ export default function BookingWidget({ apartment }: Props) {
   const total = nights * apartment.priceFrom;
 
   return (
-    <div className='sticky top-24'>
-      <div className='bg-white border border-[#E8E0D4] p-6 shadow-lg'>
+    <div className='lg:sticky lg:top-24'>
+      <div className='bg-white border border-[#E8E0D4] p-5 lg:p-6 shadow-lg'>
         {/* Header */}
         <div className='flex items-baseline justify-between mb-6'>
           <div>
@@ -60,7 +60,7 @@ export default function BookingWidget({ apartment }: Props) {
         </div>
 
         {/* Date inputs */}
-        <div className='grid grid-cols-2 gap-0 border border-[#E8E0D4] mb-4'>
+        <div className='grid grid-cols-2 gap-0 border border-[#E8E0D4] mb-4 min-w-0'>
           <div className='p-3 border-r border-[#E8E0D4]'>
             <label
               className='text-[10px] tracking-widest uppercase text-[#8A8580] block mb-1'
@@ -73,7 +73,7 @@ export default function BookingWidget({ apartment }: Props) {
               value={checkIn}
               onChange={(e) => setCheckIn(e.target.value)}
               min={new Date().toISOString().split('T')[0]}
-              className='w-full text-sm text-[#1A1A2E] bg-transparent outline-none'
+              className='w-full text-xs sm:text-sm text-[#1A1A2E] bg-transparent outline-none min-w-0'
               style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}
             />
           </div>
@@ -89,7 +89,7 @@ export default function BookingWidget({ apartment }: Props) {
               value={checkOut}
               onChange={(e) => setCheckOut(e.target.value)}
               min={checkIn || new Date().toISOString().split('T')[0]}
-              className='w-full text-sm text-[#1A1A2E] bg-transparent outline-none'
+              className='w-full text-xs sm:text-sm text-[#1A1A2E] bg-transparent outline-none min-w-0'
               style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}
             />
           </div>

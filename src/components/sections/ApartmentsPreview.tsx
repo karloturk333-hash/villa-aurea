@@ -6,7 +6,7 @@ import { apartments } from '@/data/villa';
 
 export default function ApartmentsPreview() {
   return (
-    <section className='py-24 lg:py-32 bg-[#E8E0D4] overflow-hidden'>
+    <section className='py-16 lg:py-32 bg-[#E8E0D4] overflow-hidden'>
       <div className='max-w-7xl mx-auto px-6'>
         {/* Header */}
         <motion.div
@@ -14,7 +14,7 @@ export default function ApartmentsPreview() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className='text-center mb-16'
+          className='text-center mb-10 lg:mb-16'
         >
           <span
             className='text-[11px] tracking-[0.35em] uppercase text-[#C5A55A]'
@@ -24,7 +24,7 @@ export default function ApartmentsPreview() {
           </span>
           <div className='w-12 h-px bg-[#C5A55A] mx-auto mt-4 mb-6' />
           <h2
-            className='text-5xl lg:text-6xl text-[#1A1A2E] leading-tight'
+            className='text-4xl lg:text-6xl text-[#1A1A2E] leading-tight'
             style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 300 }}
           >
             Choose your <em style={{ fontStyle: 'italic' }}>retreat</em>
@@ -43,7 +43,7 @@ export default function ApartmentsPreview() {
             >
               <Link href={`/apartments/${apt.slug}`} className='group block'>
                 {/* Image container */}
-                <div className='relative overflow-hidden aspect-[3/4] mb-6'>
+                <div className='relative overflow-hidden aspect-[4/3] md:aspect-[3/4] mb-5 lg:mb-6'>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={apt.image}

@@ -33,10 +33,10 @@ export default function BookingFlow() {
   const labelClass = 'text-[10px] tracking-widest uppercase text-[#8A8580] block mb-2';
 
   return (
-    <section className='py-20 bg-[#FAF7F2]'>
-      <div className='max-w-4xl mx-auto px-6'>
+    <section className='py-12 lg:py-20 bg-[#FAF7F2]'>
+      <div className='max-w-4xl mx-auto px-4 sm:px-6'>
         {/* Progress steps */}
-        <div className='flex items-center justify-between mb-16 relative'>
+        <div className='flex items-center justify-between mb-10 lg:mb-16 relative'>
           <div className='absolute top-3 left-0 right-0 h-px bg-[#E8E0D4] -z-0' />
           {steps.map((s) => (
             <div key={s.n} className='flex flex-col items-center gap-2 z-10'>
@@ -71,12 +71,12 @@ export default function BookingFlow() {
               transition={{ duration: 0.4 }}
             >
               <h2
-                className='text-3xl text-[#1A1A2E] mb-8'
+                className='text-2xl sm:text-3xl text-[#1A1A2E] mb-6 sm:mb-8'
                 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 300 }}
               >
                 Choose your apartment
               </h2>
-              <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>
+              <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5'>
                 {apartments.map((a) => (
                   <button
                     key={a.id}
@@ -112,11 +112,11 @@ export default function BookingFlow() {
                   </button>
                 ))}
               </div>
-              <div className='flex justify-end mt-8'>
+              <div className='flex justify-end mt-6 sm:mt-8'>
                 <button
                   onClick={() => selectedApt && setStep(2)}
                   disabled={!selectedApt}
-                  className='px-10 py-4 bg-[#1A1A2E] text-white text-sm tracking-[0.15em] uppercase disabled:opacity-40 hover:bg-[#C5A55A] transition-all duration-300'
+                  className='w-full sm:w-auto px-10 py-4 bg-[#1A1A2E] text-white text-sm tracking-[0.15em] uppercase disabled:opacity-40 hover:bg-[#C5A55A] transition-all duration-300'
                   style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 500 }}
                 >
                   Continue →
@@ -135,7 +135,7 @@ export default function BookingFlow() {
               transition={{ duration: 0.4 }}
             >
               <h2
-                className='text-3xl text-[#1A1A2E] mb-8'
+                className='text-2xl sm:text-3xl text-[#1A1A2E] mb-6 sm:mb-8'
                 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 300 }}
               >
                 Select your dates
@@ -209,10 +209,10 @@ export default function BookingFlow() {
                 </div>
               )}
 
-              <div className='flex justify-between'>
+              <div className='flex flex-col sm:flex-row justify-between gap-3 sm:gap-0'>
                 <button
                   onClick={() => setStep(1)}
-                  className='px-8 py-4 border border-[#E8E0D4] text-[#8A8580] text-sm tracking-widest uppercase hover:border-[#1A1A2E] hover:text-[#1A1A2E] transition-all'
+                  className='w-full sm:w-auto px-8 py-4 border border-[#E8E0D4] text-[#8A8580] text-sm tracking-widest uppercase hover:border-[#1A1A2E] hover:text-[#1A1A2E] transition-all'
                   style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}
                 >
                   ← Back
@@ -220,7 +220,7 @@ export default function BookingFlow() {
                 <button
                   onClick={() => checkIn && checkOut && nights > 0 && setStep(3)}
                   disabled={!checkIn || !checkOut || nights <= 0}
-                  className='px-10 py-4 bg-[#1A1A2E] text-white text-sm tracking-[0.15em] uppercase disabled:opacity-40 hover:bg-[#C5A55A] transition-all duration-300'
+                  className='w-full sm:w-auto px-10 py-4 bg-[#1A1A2E] text-white text-sm tracking-[0.15em] uppercase disabled:opacity-40 hover:bg-[#C5A55A] transition-all duration-300'
                   style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 500 }}
                 >
                   Continue →
@@ -239,7 +239,7 @@ export default function BookingFlow() {
               transition={{ duration: 0.4 }}
             >
               <h2
-                className='text-3xl text-[#1A1A2E] mb-8'
+                className='text-2xl sm:text-3xl text-[#1A1A2E] mb-6 sm:mb-8'
                 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 300 }}
               >
                 Your details
@@ -292,10 +292,10 @@ export default function BookingFlow() {
                 />
               </div>
 
-              <div className='flex justify-between'>
+              <div className='flex flex-col sm:flex-row justify-between gap-3 sm:gap-0'>
                 <button
                   onClick={() => setStep(2)}
-                  className='px-8 py-4 border border-[#E8E0D4] text-[#8A8580] text-sm tracking-widest uppercase hover:border-[#1A1A2E] hover:text-[#1A1A2E] transition-all'
+                  className='w-full sm:w-auto px-8 py-4 border border-[#E8E0D4] text-[#8A8580] text-sm tracking-widest uppercase hover:border-[#1A1A2E] hover:text-[#1A1A2E] transition-all'
                   style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}
                 >
                   ← Back
@@ -303,7 +303,7 @@ export default function BookingFlow() {
                 <button
                   onClick={() => guestInfo.name && guestInfo.email && setStep(4)}
                   disabled={!guestInfo.name || !guestInfo.email}
-                  className='px-10 py-4 bg-[#C5A55A] text-white text-sm tracking-[0.15em] uppercase disabled:opacity-40 hover:bg-[#D4B96E] transition-all duration-300'
+                  className='w-full sm:w-auto px-10 py-4 bg-[#C5A55A] text-white text-sm tracking-[0.15em] uppercase disabled:opacity-40 hover:bg-[#D4B96E] transition-all duration-300'
                   style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 500 }}
                 >
                   Complete Reservation →

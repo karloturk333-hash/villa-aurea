@@ -77,9 +77,9 @@ export default async function ApartmentDetailPage({ params }: Props) {
       <ApartmentGallery images={apt.gallery} name={apt.name} />
 
       {/* Main content */}
-      <section className='py-20 bg-[#FAF7F2]'>
-        <div className='max-w-7xl mx-auto px-6'>
-          <div className='grid grid-cols-1 lg:grid-cols-3 gap-12'>
+      <section className='py-12 lg:py-20 bg-[#FAF7F2]'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6'>
+          <div className='grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-12'>
             {/* Left — description */}
             <div className='lg:col-span-2'>
               <span
@@ -90,14 +90,14 @@ export default async function ApartmentDetailPage({ params }: Props) {
               </span>
               <div className='w-10 h-px bg-[#C5A55A] mt-3 mb-5' />
               <h1
-                className='text-5xl lg:text-6xl text-[#1A1A2E] mb-6 leading-tight'
+                className='text-4xl lg:text-6xl text-[#1A1A2E] mb-5 lg:mb-6 leading-tight'
                 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 300 }}
               >
                 {apt.name}
               </h1>
 
               <p
-                className='text-xl text-[#8A8580] leading-relaxed mb-10'
+                className='text-base lg:text-xl text-[#8A8580] leading-relaxed mb-8 lg:mb-10'
                 style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 300 }}
               >
                 {apt.description}

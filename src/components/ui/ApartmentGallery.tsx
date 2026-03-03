@@ -14,7 +14,7 @@ export default function ApartmentGallery({ images, name }: Props) {
 
   return (
     <>
-      <section className='relative h-[70vh] min-h-[500px] bg-[#1A1A2E] overflow-hidden'>
+      <section className='relative h-[55vh] sm:h-[65vh] lg:h-[70vh] min-h-[320px] bg-[#1A1A2E] overflow-hidden'>
         {/* Main image */}
         <AnimatePresence mode='wait'>
           <motion.div
@@ -37,9 +37,9 @@ export default function ApartmentGallery({ images, name }: Props) {
         </AnimatePresence>
 
         {/* Title overlay */}
-        <div className='absolute bottom-10 left-8 lg:left-12 z-10'>
+        <div className='absolute bottom-16 sm:bottom-10 left-5 sm:left-8 lg:left-12 z-10'>
           <h1
-            className='text-4xl sm:text-5xl lg:text-6xl text-white leading-tight'
+            className='text-3xl sm:text-5xl lg:text-6xl text-white leading-tight'
             style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 300 }}
           >
             {name}
@@ -47,12 +47,12 @@ export default function ApartmentGallery({ images, name }: Props) {
         </div>
 
         {/* Thumbnails */}
-        <div className='absolute bottom-8 right-8 lg:right-12 z-10 flex gap-2'>
+        <div className='absolute bottom-4 left-0 right-0 z-10 flex gap-2 justify-center sm:justify-end sm:right-8 sm:left-auto lg:right-12 px-5 sm:px-0 overflow-x-auto'>
           {images.map((img, i) => (
             <button
               key={i}
               onClick={() => setActiveIndex(i)}
-              className={`w-14 h-10 overflow-hidden border-2 transition-all duration-200 ${
+              className={`flex-shrink-0 w-12 h-9 sm:w-14 sm:h-10 overflow-hidden border-2 transition-all duration-200 ${
                 i === activeIndex ? 'border-[#C5A55A]' : 'border-white/30 hover:border-white/60'
               }`}
               aria-label={`View photo ${i + 1}`}
@@ -85,7 +85,7 @@ export default function ApartmentGallery({ images, name }: Props) {
             onClick={() => setLightboxOpen(false)}
           >
             <button
-              className='absolute top-6 right-6 text-white/60 hover:text-white text-3xl'
+              className='absolute top-4 right-4 w-11 h-11 flex items-center justify-center text-white/60 hover:text-white text-2xl'
               onClick={() => setLightboxOpen(false)}
               aria-label='Close lightbox'
             >
@@ -95,22 +95,22 @@ export default function ApartmentGallery({ images, name }: Props) {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className='max-w-5xl max-h-[90vh] mx-8'
+              className='max-w-5xl max-h-[90vh] mx-4 sm:mx-8'
               onClick={(e) => e.stopPropagation()}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={images[activeIndex]}
                 alt={`${name} — photo ${activeIndex + 1}`}
-                className='max-w-full max-h-[80vh] object-contain'
+                className='max-w-full max-h-[75vh] object-contain'
               />
               {/* Lightbox thumbnails */}
-              <div className='flex gap-3 mt-4 justify-center'>
+              <div className='flex gap-2 sm:gap-3 mt-3 sm:mt-4 justify-center overflow-x-auto pb-1'>
                 {images.map((img, i) => (
                   <button
                     key={i}
                     onClick={() => setActiveIndex(i)}
-                    className={`w-16 h-11 overflow-hidden border transition-all ${
+                    className={`flex-shrink-0 w-12 h-9 sm:w-16 sm:h-11 overflow-hidden border transition-all ${
                       i === activeIndex ? 'border-[#C5A55A]' : 'border-white/20'
                     }`}
                     aria-label={`View photo ${i + 1}`}

@@ -19,12 +19,12 @@ export default function Footer() {
   return (
     <footer className='bg-[#1A1A2E] text-white/70'>
       {/* Main footer */}
-      <div className='max-w-7xl mx-auto px-6 py-20'>
-        <div className='grid grid-cols-1 md:grid-cols-4 gap-12'>
+      <div className='max-w-7xl mx-auto px-6 py-12 lg:py-20'>
+        <div className='grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12'>
           {/* Brand */}
-          <div className='md:col-span-1'>
+          <div className='col-span-2 md:col-span-1'>
             <h3
-              className='text-3xl text-white tracking-widest mb-2'
+              className='text-2xl lg:text-3xl text-white tracking-widest mb-2'
               style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 300 }}
             >
               VILLA AUREA

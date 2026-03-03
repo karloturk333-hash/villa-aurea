@@ -12,16 +12,16 @@ export default function AboutSection() {
   const imageY = useTransform(scrollYProgress, [0, 1], ['-10%', '10%']);
 
   return (
-    <section ref={sectionRef} className='py-24 lg:py-32 bg-[#FAF7F2] overflow-hidden'>
+    <section ref={sectionRef} className='py-16 lg:py-32 bg-[#FAF7F2] overflow-hidden'>
       <div className='max-w-7xl mx-auto px-6'>
-        <div className='grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center'>
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-24 items-center'>
           {/* Image with parallax */}
           <motion.div
             initial={{ opacity: 0, x: -60 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className='relative overflow-hidden aspect-[4/5]'
+            className='relative overflow-hidden aspect-[4/3] lg:aspect-[4/5]'
           >
             <motion.div style={{ y: imageY }} className='absolute inset-0 scale-110'>
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -55,7 +55,7 @@ export default function AboutSection() {
             <div className='w-12 h-px bg-[#C5A55A] mt-4 mb-6' />
 
             <h2
-              className='text-5xl lg:text-6xl text-[#1A1A2E] leading-[1.1] mb-8'
+              className='text-4xl lg:text-6xl text-[#1A1A2E] leading-[1.1] mb-6 lg:mb-8'
               style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 300 }}
             >
               Where stone<br />
@@ -66,7 +66,7 @@ export default function AboutSection() {
               className='space-y-5 text-[#2D2D2D]/70 leading-relaxed'
               style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 300 }}
             >
-              <p className='text-lg'>
+              <p className='text-base lg:text-lg'>
                 Built in 2019, Villa Aurea rises from the ancient limestone of Hvar with the quiet confidence of a home that knows its place in the world. Its facade — traditional Dalmatian stone, sun-worn and salt-kissed — conceals interiors of quiet modern luxury.
               </p>
               <p>
@@ -77,7 +77,7 @@ export default function AboutSection() {
               </p>
             </div>
 
-            <div className='flex gap-12 mt-10 pt-8 border-t border-[#E8E0D4]'>
+            <div className='flex gap-8 lg:gap-12 mt-8 lg:mt-10 pt-6 lg:pt-8 border-t border-[#E8E0D4]'>
               <div>
                 <div
                   className='text-3xl text-[#C5A55A] mb-1'
