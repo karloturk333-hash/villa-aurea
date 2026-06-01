@@ -66,4 +66,4 @@ vercel --prod
 
 ---
 
-Built by **Volthr** · Zagreb, Croatia
+
